@@ -27,7 +27,7 @@ namespace TestProject1
             options.AddArguments("disable-gpu");
             options.AddArguments("window-size=1920x1080");
             options.AddArguments("disable-extensions");
-            options.AddArguments("remote-debugging-port=9222");
+            //options.AddArguments("remote-debugging-port=9222");
 
             driver = new ChromeDriver(options);
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
