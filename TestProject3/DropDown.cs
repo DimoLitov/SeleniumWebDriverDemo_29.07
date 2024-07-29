@@ -21,7 +21,7 @@ namespace TestProject3
             options.AddArguments("disable-dev-shm-usage");
             options.AddArguments("disable-gpu");
             options.AddArguments("window-size=1920x1080");
-            options.AddArguments("disable-extension");
+            options.AddArguments("disable-extensions");
             //options.AddArguments("remote-debugging-port=9222");
 
             driver = new ChromeDriver(options);
@@ -29,7 +29,12 @@ namespace TestProject3
             // Add implicit wait
             driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
         }
-
+        [TearDown]
+        public void TearDown()
+        {
+            driver.Quit();
+            driver.Dispose();
+        }
         [Test]
         public void TestSelectFromDropDown()
         {
@@ -90,8 +95,7 @@ namespace TestProject3
                 }
             }
 
-            // Quit the driver
-            driver.Quit();
+        
         }
     }
 }
